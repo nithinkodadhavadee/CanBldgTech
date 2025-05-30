@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Can Bldg Tech - Expert Building Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Metadata (unchanged) -->
+    <!-- ... Meta Tags remain the same ... -->
+
+    <!-- Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/pvy3ocx.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucid -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      :root {
+        --background-color: #071013;
+        --logo-color: #aaaaaa;
+        --primary-color: #aaaaaa;
+        --secondary-color: #b7999c;
+        --section-title-color: #aaaaaa;
+        --text-color: #aaaaaa;
+        --footer-border-color: #dfe0e2;
+        --footer-text-color: #dfe0e2;
+        --logo-font: "brush-script-std", sans-serif;
+        --body-font: "Lexend", sans-serif;
+        --accent-color: #eb5160;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+
+        scroll-padding-top: 150px;
+      }
+
+      body {
+        margin: 2em;
+        font-family: var(--body-font);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        border: 5px solid var(--primary-color);
+        overflow-x: hidden;
+      }
+
+      a {
+        color: var(--secondary-color);
+        font-weight: bold;
+      }
+
+      a:hover {
+        color: var(--accent-color);
+        text-decoration: underline;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .menu {
+        position: sticky;
+        top: 0;
+        border-bottom: 1px solid var(--primary-color);
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: space-between; */
+        justify-content: center;
+        align-items: center;
+        padding: 1.5em 1em;
+        z-index: 1000;
+        background-color: var(--background-color);
+        gap: 2em;
+        justify-content: center;
+      }
+
+      .menu a {
+        margin: 0 0.5em;
+        text-decoration: none;
+        color: var(--primary-color);
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.3s;
+        font-size: 1em;
+      }
+
+      .menu a.active {
+        border-bottom: 2px solid var(--accent-color);
+        color: var(--accent-color);
+      }
+
+      .menu-items {
+        /* margin-top: 0.5em; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1em;
+      }
+
+      .logo {
+        font-family: var(--logo-font);
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2.5em;
+        color: var(--logo-color);
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      @media (min-width: 768px) {
+        .logo {
+          font-size: 4em;
+          text-align: left;
+          flex: 0 0 auto;
+          margin: 0.5em;
+        }
+
+        .menu-items {
+          margin: 0;
+        }
+      }
+
+      @media (min-width: 900px) {
+        .menu {
+          justify-content: space-between;
+          margin: 0 1.5em;
+          margin-right: 3em;
+        }
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2em;
+        margin-top: 2em;
+        padding: 1em;
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          padding: 2em;
+        }
+      }
+
+      .column {
+        background: none;
+        border: none;
+        padding: 1em;
+        min-height: auto;
+      }
+
+      section {
+        padding: 2em 0;
+      }
+
+      .footer {
+        margin-top: 50px;
+        padding: 20px 1em;
+        border-top: 1px solid var(--footer-border-color);
+        font-size: 0.8em;
+        color: var(--footer-text-color);
+        text-align: center;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        border-radius: 8px;
+      }
+
+      .masonry {
+        column-count: 3;
+        column-gap: 1em;
+        padding: 1em;
+      }
+
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 1em;
+        display: block;
+        transition: transform 0.2s;
+      }
+
+      .masonry-item:hover {
+        transform: scale(1.02);
+      }
+
+      .carousel {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+        padding: 1em;
+      }
+
+      .slide {
+        flex: 0 0 80%;
+        scroll-snap-align: start;
+        display: block;
+        border-radius: 8px;
+        transition: transform 0.2s;
+      }
+
+      .slide:hover {
+        transform: scale(1.03);
+      }
+
+      .carousel::-webkit-scrollbar {
+        display: none;
+      }
+
+      .carousel {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Services Section */
+
+      .services-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2em;
+        margin-top: 2em;
+      }
+
+      .service-item {
+        flex: 1 1 250px;
+        max-width: 300px;
+        background-color: #11191c;
+        padding: 2em;
+        border-radius: 8px;
+        border: 1px solid var(--primary-color);
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .service-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .service-item i {
+        width: 40px;
+        height: 40px;
+        stroke: var(--accent-color);
+        margin-bottom: 1em;
+      }
+
+      .service-item h3 {
+        font-size: 1.2em;
+        color: var(--section-title-color);
+        margin-bottom: 0.5em;
+      }
+
+      .service-item p {
+        font-size: 0.95em;
+        color: var(--text-color);
+      }
+
+      .service-areas {
+        margin-top: 2em;
+        font-size: 0.95em;
+        color: var(--text-color);
+        text-align: center;
+      }
+
+      /* contact section */
+      .contact-section {
+        padding: 3em 1em;
+        background-color: var(--background-color);
+        text-align: center;
+      }
+
+      .contact-section h2 {
+        margin-bottom: 1.5em;
+        /* font-size: 2em; */
+        color: var(--primary-color);
+      }
+
+      .contact-grid-wrapper {
+        max-width: 1200px;
+        margin: 0 auto; /* centers the grid container */
+      }
+
+      .contact-grid {
+        /* display: grid; */
+        /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+        gap: 2em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .contact-block {
+        background-color: var(--card-bg, #f9f9f9);
+        padding: 1.5em;
+        border-radius: 12px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        flex: 1 1 220px; /* allows blocks to grow and shrink */
+      }
+
+      .contact-block i {
+        color: var(--accent-color);
+        margin-bottom: 0.5em;
+      }
+
+      .contact-block h3 {
+        margin: 0.3em 0;
+        font-size: 1.1em;
+        color: var(--primary-color);
+      }
+
+      .contact-block p,
+      .contact-block a {
+        font-size: 0.95em;
+        color: var(--text-color);
+        word-break: break-word;
+        text-decoration: none;
+      }
+
+      .contact-block a:hover {
+        color: var(--accent-color);
+        text-decoration: underline;
+      }
+
+      /* hero section and about section */
+      /* Hero section */
+      .hero-section {
+        text-align: center;
+        padding: 4em 1em;
+      }
+
+      .hero-section h1 {
+        font-size: 2em;
+        margin-bottom: 1em;
+        color: var(--section-title-color);
+      }
+
+      .hero-section p {
+        font-size: 1.1em;
+        max-width: 700px;
+        margin: 0 auto 1.5em;
+      }
+
+      .hero-section .button {
+        background-color: var(--accent-color);
+        color: white;
+        padding: 0.75em 1.5em;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        display: inline-block;
+        transition: background-color 0.3s;
+      }
+
+      .hero-section .button:hover {
+        background-color: #c23e4e;
+      }
+
+      /* About section */
+      .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+      }
+
+      .about-grid .icon-box {
+        background-color: #11191c;
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
+        padding: 2em;
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .about-grid .icon-box i {
+        width: 40px;
+        height: 40px;
+        stroke: var(--accent-color);
+        margin-bottom: 1em;
+      }
+
+      .about-grid .icon-box h3 {
+        font-size: 1.3em;
+        margin-bottom: 0.5em;
+        color: var(--section-title-color);
+      }
+
+      .about-grid .icon-box p {
+        font-size: 1em;
+        color: var(--text-color);
+      }
+
+      /* Responsive two-column on larger screens */
+      @media (min-width: 768px) {
+        .about-grid {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .about-grid .column,
+        .about-grid .icon-box {
+          flex: 1;
+          margin: 0 1em;
+        }
+      }
+
+      /* Specialist approach */
+      .icon-list-wrapper {
+        margin-top: 1.5em;
+      }
+
+      .icon-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .icon-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.75em;
+        margin-bottom: 1em;
+        font-size: 1em;
+        color: var(--text-color);
+      }
+
+      .icon-list i {
+        width: 24px;
+        height: 24px;
+        stroke: var(--accent-color);
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="menu">
+      <div class="logo">Can Bldg Tech</div>
+      <div class="menu-items">
+        <a href="#section0">Home</a>
+
+        <a href="#section1">About</a>
+        <a href="#section2">Services </a>
+        <a href="#section3">Gallery</a>
+        <a href="#section4">Contact</a>
+      </div>
+    </nav>
+
+    <div>
+      <section id="section0" class="container hero-section">
+        <div class="hero-content column">
+          <h1>Building Strength. Engineering Trust.</h1>
+          <p>
+            At Can Bldg Tech, we specialize in delivering durable,
+            high-performance solutions for complex civil engineering
+            challenges—on time, within budget, and built to last.
+          </p>
+          <a href="#section3" class="button">Explore Our Services</a>
+        </div>
+      </section>
+
+      <section id="section1" class="container two-column">
+        <div class="column">
+          <h2>About Can Bldg Tech</h2>
+          <p>
+            Can Bldg Tech is built on a foundation of technical expertise and a
+            deep commitment to problem-solving in the civil engineering space.
+            We believe that buildings must not only look beautiful—but also
+            endure time, wear, and nature's forces. Our specialist team of
+            engineers deliver customized, chemical-based solutions that extend
+            the life of structures of all kinds.
+          </p>
+        </div>
+        <div class="icon-box column">
+          <i data-lucide="shield-check"></i>
+          <h3>Trusted for Durability</h3>
+          <p>
+            We ensure every treatment, whether structural or aesthetic, enhances
+            long-term performance.
+          </p>
+        </div>
+      </section>
+
+      <section class="approach container">
+        <div class="column">
+          <h2>Our Specialist Approach</h2>
+          <p>
+            We approach every project with precision and foresight. From
+            thorough site analysis to carefully selected treatments, our process
+            ensures results that last—functionally and aesthetically.
+          </p>
+          <div class="icon-list-wrapper">
+            <ul class="icon-list">
+              <li><i data-lucide="search"></i> Detailed problem analysis</li>
+              <li>
+                <i data-lucide="activity"></i> Customized treatment strategy
+              </li>
+              <li><i data-lucide="clock"></i> On-time execution</li>
+              <li>
+                <i data-lucide="check-circle"></i> Proven longevity and
+                performance
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="section2" class="container services-section">
+        <div class="column">
+          <h2>Our Services</h2>
+          <div class="services-grid">
+            <div class="service-item">
+              <i data-lucide="droplet"></i>
+              <h3>Terrace Waterproofing</h3>
+              <p>
+                Effective solutions for new and existing buildings to prevent
+                leaks and water ingress.
+              </p>
+            </div>
+            <div class="service-item">
+              <i data-lucide="layers"></i>
+              <h3>Basement & Foundation</h3>
+              <p>
+                Comprehensive sealing and protection for underground structures
+                against moisture damage.
+              </p>
+            </div>
+            <div class="service-item">
+              <i data-lucide="shower-head"></i>
+              <h3>Bathroom Sealing</h3>
+              <p>
+                Leak-proof sealing of internal wet areas like bathrooms,
+                kitchens, and utility spaces.
+              </p>
+            </div>
+            <div class="service-item">
+              <i data-lucide="home"></i>
+              <h3>Exterior Wall Coating</h3>
+              <p>
+                Weather-resistant coatings to shield outer surfaces from cracks,
+                dampness, and aging.
+              </p>
+            </div>
+            <div class="service-item">
+              <i data-lucide="activity"></i>
+              <h3>Leakage Repair</h3>
+              <p>
+                Precise crack injection and surface sealing techniques for
+                long-term performance.
+              </p>
+            </div>
+            <div class="service-item">
+              <i data-lucide="building-2"></i>
+              <h3>Commercial Waterproofing</h3>
+              <p>
+                Large-scale, industrial-grade waterproofing for offices,
+                complexes, and factories.
+              </p>
+            </div>
+            <div class="service-item">
+              <i data-lucide="divide-square"></i>
+              <h3>Expansion Joint Sealing</h3>
+              <p>
+                Flexible joint treatment that accommodates building movement
+                while preventing seepage.
+              </p>
+            </div>
+          </div>
+          <div class="service-areas">
+            <strong>Service Areas:</strong>
+            <p>
+              Bengaluru, Hassan, Udupi, Mangaluru, Mysuru, and nearby regions
+              across Karnataka. Our team handles residential, commercial, and
+              industrial projects of all scales.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="section3" class="container">
+        <div class="column">
+          <h2>Gallery Section</h2>
+          <div id="gallery-container"></div>
+        </div>
+      </section>
+
+      <section id="section4" class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-grid-wrapper">
+          <div class="contact-grid">
+            <!-- Contact Info Blocks -->
+            <div class="contact-block">
+              <i data-lucide="map-pin"></i>
+              <h3>Location</h3>
+              <p>Bengaluru, Karnataka, India</p>
+            </div>
+            <div class="contact-block">
+              <i data-lucide="mail"></i>
+              <h3>Email</h3>
+              <p>
+                <a href="mailto:canbldgtech@gmail.com">canbldgtech@gmail.com</a>
+              </p>
+            </div>
+            <div class="contact-block">
+              <i data-lucide="phone"></i>
+              <h3>Phone</h3>
+              <p><a href="tel:+919980916377">+91 99809 16377</a></p>
+            </div>
+            <div class="contact-block">
+              <i data-lucide="message-circle"></i>
+              <h3>WhatsApp</h3>
+              <p>
+                <a href="https://wa.me/919980916377" target="_blank"
+                  >Message us</a
+                >
+              </p>
+            </div>
+            <div class="contact-block">
+              <i data-lucide="linkedin"></i>
+              <h3>LinkedIn</h3>
+              <p>
+                <a
+                  href="https://www.linkedin.com/in/canbldgtech"
+                  target="_blank"
+                  >Visit Profile</a
+                >
+              </p>
+            </div>
+            <div class="contact-block">
+              <i data-lucide="globe"></i>
+              <h3>Website</h3>
+              <p><a href="https://www.canbldgtech.com">canbldgtech.com</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      <p>
+        Note: Every reasonable precaution is taken while making recommendations.
+        Results depend on various factors.
+      </p>
+      <br />
+      <p>
+        Powered by <a href="https://codebloomstudios.com">Codebloom Studios</a>
+      </p>
+      <br />
+      <p>© 2025 CanBldgTech. GSTIN: 29HMLPS7784D1Z3</p>
+      <p>
+        All rights reserved. Unauthorized use or reproduction is prohibited.
+        Contact us for permissions.
+      </p>
+    </div>
+
+    <script>
+      const galleryData = [
+        {
+          id: 1,
+          name: "roof",
+          filename: "1.jpeg",
+          alt: "work 1",
+          projectLink: "project1.html",
+        },
+        {
+          id: 2,
+          name: "roof",
+          filename: "2.jpeg",
+          alt: "work 2",
+          projectLink: "project2.html",
+        },
+        {
+          id: 3,
+          name: "terrace",
+          filename: "3.jpeg",
+          alt: "work 3",
+          projectLink: "project3.html",
+        },
+        {
+          id: 4,
+          name: "terrace",
+          filename: "4.jpeg",
+          alt: "work 4",
+          projectLink: "project4.html",
+        },
+        {
+          id: 5,
+          name: "roof",
+          filename: "5.jpeg",
+          alt: "work 5",
+          projectLink: "project5.html",
+        },
+        {
+          id: 6,
+          name: "roof",
+          filename: "6.jpeg",
+          alt: "work 6",
+          projectLink: "project6.html",
+        },
+        {
+          id: 7,
+          name: "windows",
+          filename: "7.jpeg",
+          alt: "work 7",
+          projectLink: "project7.html",
+        },
+        {
+          id: 8,
+          name: "washroom",
+          filename: "8.jpeg",
+          alt: "work 8",
+          projectLink: "project8.html",
+        },
+        {
+          id: 9,
+          name: "washroom",
+          filename: "9.jpeg",
+          alt: "work 9",
+          projectLink: "project9.html",
+        },
+        {
+          id: 10,
+          name: "garden",
+          filename: "10.jpeg",
+          alt: "work 10",
+          projectLink: "project10.html",
+        },
+        {
+          id: 11,
+          name: "roof",
+          filename: "11.jpeg",
+          alt: "work 11",
+          projectLink: "project11.html",
+        },
+        {
+          id: 12,
+          name: "pool",
+          filename: "12.jpeg",
+          alt: "work 12",
+          projectLink: "project12.html",
+        },
+      ];
+
+      const container = document.getElementById("gallery-container");
+      //   const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      const isMobile = false; // Set to false for desktop view
+      if (isMobile) {
+        const carousel = document.createElement("div");
+        carousel.className = "carousel";
+
+        galleryData.forEach((item) => {
+          const slide = document.createElement("a");
+          slide.href = item.projectLink;
+          slide.className = "slide";
+          slide.innerHTML = `<img src="./img/${item.filename}" alt="${item.alt}" />`;
+          carousel.appendChild(slide);
+        });
+
+        container.appendChild(carousel);
+      } else {
+        const grid = document.createElement("div");
+        grid.className = "masonry";
+
+        galleryData.forEach((item) => {
+          const block = document.createElement("a");
+          block.href = item.projectLink;
+          block.className = "masonry-item";
+          block.innerHTML = `<img src="./img/${item.filename}" alt="${item.alt}" />`;
+          grid.appendChild(block);
+        });
+
+        container.appendChild(grid);
+      }
+    </script>
+
+    <script>
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".menu a");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 400;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
