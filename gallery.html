@@ -30,17 +30,17 @@
     <nav class="menu">
       <div class="logo"><a href="./">Can Bldg Tech</a></div>
       <div class="menu-items">
-        <a href="#section0">Home</a>
+        <a href="./index.html#section0">Home</a>
 
-        <a href="#section1">About</a>
-        <a href="#section2">Services </a>
+        <a href="./index.html#section1">About</a>
+        <a href="./index.html#section2">Services </a>
         <a href="#section3">Gallery</a>
         <a href="#section4">Contact</a>
       </div>
     </nav>
 
     <div>
-      <section id="section0" class="container hero-section">
+      <!-- <section id="section0" class="container hero-section">
         <div class="hero-content column">
           <h1>Building Strength. Engineering Trust.</h1>
           <p>
@@ -48,63 +48,11 @@
             high-performance solutions for complex civil engineering
             challenges—on time, within budget, and built to last.
           </p>
-          <div class="hero-buttons">
-            <a href="#section2" class="button">Explore Our Services</a> <br />
-            <a href="./gallery.html"
-              >View our Gallery <i data-lucide="move-up-right"></i
-            ></a>
-          </div>
+          <a href="#section3" class="button">Explore Our Services</a>
         </div>
       </section>
 
-      <section id="section1" class="container about-section">
-        <div class="column">
-          <h2>Who are we?</h2>
-          <p>
-            We are Canera Building Technologies, a specialized civil engineering
-            firm dedicated to solving complex structural challenges through
-            innovative materials and expert craftsmanship. With a deep
-            understanding of building science and deterioration mechanisms, we
-            deliver performance-driven solutions that restore, protect, and
-            extend the life of structures.
-          </p>
-          <p>
-            From leak-proofing and surface treatments to foundation
-            strengthening and durability upgrades, we provide tailored,
-            chemical-based interventions rooted in engineering principles and
-            real-world insights.
-          </p>
-        </div>
-
-        <div class="column highlights">
-          <h2>What Sets Us Apart</h2>
-          <ul class="icon-list">
-            <li>
-              <i data-lucide="zap"></i>
-              Science-backed, material-first approach
-            </li>
-            <li>
-              <i data-lucide="layers"></i>
-              Specialized in retrofitting and protection
-            </li>
-            <li>
-              <i data-lucide="briefcase"></i>
-
-              Deep on-site problem diagnosis
-            </li>
-            <li>
-              <i data-lucide="award"></i>
-              Proven experience across industries
-            </li>
-            <li>
-              <i data-lucide="users"></i> Client-first process with transparent
-              execution
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- <section id="section1" class="container two-column">
+      <section id="section1" class="container two-column">
         <div class="column">
           <h2>About Can Bldg Tech</h2>
           <p>
@@ -148,7 +96,7 @@
             </ul>
           </div>
         </div>
-      </section> -->
+      </section>
 
       <section id="section2" class="container services-section">
         <div class="column">
@@ -220,18 +168,12 @@
             </p>
           </div>
         </div>
-      </section>
+      </section>       -->
 
-      <section id="section3" class="container hero-section">
-        <div class="hero-content column">
-          <h2>Gallery</h2>
-          <p>
-            Explore our completed projects and works in detail on our dedicated
-            gallery page.
-          </p>
-          <div class="hero-buttons">
-            <a href="gallery.html" class="button">Visit Gallery</a>
-          </div>
+      <section id="section3" class="container">
+        <div class="column">
+          <h2>Gallery Section</h2>
+          <div id="gallery-container"></div>
         </div>
       </section>
 
@@ -309,6 +251,139 @@
         Contact us for permissions.
       </p>
     </div>
+
+    <script>
+      const galleryData = [
+        {
+          id: 1,
+          name: "roof",
+          filename: "1.jpeg",
+          alt: "work 1",
+          projectLink: "project1.html",
+        },
+        {
+          id: 2,
+          name: "roof",
+          filename: "2.jpeg",
+          alt: "work 2",
+          projectLink: "project2.html",
+        },
+        {
+          id: 3,
+          name: "terrace",
+          filename: "3.jpeg",
+          alt: "work 3",
+          projectLink: "project3.html",
+        },
+        {
+          id: 4,
+          name: "terrace",
+          filename: "4.jpeg",
+          alt: "work 4",
+          projectLink: "project4.html",
+        },
+        {
+          id: 5,
+          name: "roof",
+          filename: "5.jpeg",
+          alt: "work 5",
+          projectLink: "project5.html",
+        },
+        {
+          id: 6,
+          name: "roof",
+          filename: "6.jpeg",
+          alt: "work 6",
+          projectLink: "project6.html",
+        },
+        {
+          id: 7,
+          name: "windows",
+          filename: "7.jpeg",
+          alt: "work 7",
+          projectLink: "project7.html",
+        },
+        {
+          id: 8,
+          name: "washroom",
+          filename: "8.jpeg",
+          alt: "work 8",
+          projectLink: "project8.html",
+        },
+        {
+          id: 9,
+          name: "washroom",
+          filename: "9.jpeg",
+          alt: "work 9",
+          projectLink: "project9.html",
+        },
+        {
+          id: 10,
+          name: "garden",
+          filename: "10.jpeg",
+          alt: "work 10",
+          projectLink: "project10.html",
+        },
+        {
+          id: 11,
+          name: "roof",
+          filename: "11.jpeg",
+          alt: "work 11",
+          projectLink: "project11.html",
+        },
+        {
+          id: 12,
+          name: "pool",
+          filename: "12.jpeg",
+          alt: "work 12",
+          projectLink: "project12.html",
+        },
+      ];
+
+      const container = document.getElementById("gallery-container");
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      //   const isMobile = false; // Set to false for desktop view
+      if (isMobile) {
+        // const carousel = document.createElement("div");
+        // carousel.className = "carousel";
+
+        // galleryData.forEach((item) => {
+        //   const slide = document.createElement("a");
+        //   slide.href = item.projectLink;
+        //   slide.className = "slide";
+        //   slide.innerHTML = `<img src="./img/${item.filename}" alt="${item.alt}" />`;
+        //   carousel.appendChild(slide);
+        // });
+
+        // container.appendChild(carousel);
+
+        const grid = document.createElement("div");
+        grid.className = "masonry-mobile";
+
+        galleryData.forEach((item) => {
+          const block = document.createElement("a");
+          block.href = item.projectLink;
+          block.className = "masonry-item";
+          block.innerHTML = `<img src="./img/${item.filename}" alt="${item.alt}" />`;
+          grid.appendChild(block);
+        });
+
+        container.appendChild(grid);
+      } else {
+        const grid = document.createElement("div");
+        grid.className = "masonry";
+
+        galleryData.forEach((item) => {
+          const block = document.createElement("a");
+          block.href = item.projectLink;
+          block.className = "masonry-item";
+          block.innerHTML = `<img src="./img/${item.filename}" alt="${item.alt}" />`;
+          grid.appendChild(block);
+        });
+
+        container.appendChild(grid);
+      }
+    </script>
 
     <script>
       const sections = document.querySelectorAll("section");
