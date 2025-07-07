@@ -390,8 +390,10 @@
         grid.className = "masonry-mobile";
 
         galleryData.forEach((item) => {
-          const block = document.createElement("a");
-          block.href = item.projectLink;
+          // const block = document.createElement("a");
+          // block.href = item.projectLink;
+
+          const block = document.createElement("div");
           block.className = "masonry-item";
           block.innerHTML = `<img src="./img/${item.filename}" alt="${item.alt}" />`;
           grid.appendChild(block);
@@ -403,8 +405,9 @@
         grid.className = "masonry";
 
         galleryData.forEach((item) => {
-          const block = document.createElement("a");
-          block.href = item.projectLink;
+          // const block = document.createElement("a");
+          // block.href = item.projectLink;
+          const block = document.createElement("div");
           block.className = "masonry-item";
           block.innerHTML = `<img src="./img/${item.filename}" alt="${item.alt}" />`;
           grid.appendChild(block);

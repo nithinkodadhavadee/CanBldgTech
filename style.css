@@ -217,11 +217,13 @@ img {
   break-inside: avoid;
   margin-bottom: 1em;
   display: block;
-  transition: transform 0.2s;
+  transition: transform 1s;
 }
 
 .masonry-item:hover {
-  transform: scale(1.02);
+  transform: scale(103%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
 }
 
 .carousel {
